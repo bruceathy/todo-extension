@@ -10,8 +10,27 @@
       integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
     <script src="script.js" defer></script>
     <title>To-Do List</title>
   </head>
-  <body></body>
+  <body>
+    <h1>To-Do List</h1>
+    <div id="add-container" class="add-container">
+      <div class="form-group">
+        <textarea id="question" placeholder="Get more milk..."></textarea>
+      </div>
+      <button id="add-card"><i class="fas fa-plus"></i></button>
+    </div>
+    <div class="to-do-container">
+      <ul id="to-do">
+        <li>test</li>
+      </ul>
+    </div>
+  </body>
 </html>
