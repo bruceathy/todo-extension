@@ -62,7 +62,7 @@ h1 {
 
 .todo-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   overflow-y: scroll;
   scroll-behavior: smooth;
