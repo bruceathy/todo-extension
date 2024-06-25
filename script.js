@@ -15,7 +15,6 @@ addBtn.addEventListener("click", () => {
   const toDo = toDoInput.value;
 
   if (toDo === "") {
-    alert("Please enter a task");
     return;
   } else {
     toDoInput.value = "";
