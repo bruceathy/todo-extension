@@ -79,18 +79,7 @@ h1 {
 }
 
 li {
-  font-size: 1.5rem;
   color: #000;
-}
-
-li p {
-  display: inline;
-  margin-right: 0.2rem;
-}
-
-li p:hover {
-  cursor: pointer;
-  text-decoration: underline;
 }
 
 li button {
