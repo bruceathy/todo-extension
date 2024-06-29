@@ -50,6 +50,11 @@ h1 {
   padding: 0.2rem;
 }
 
+span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .add-container {
   display: flex;
   align-items: center;
@@ -80,6 +85,7 @@ h1 {
 
 li {
   color: #000;
+  font-size: 1.6rem;
 }
 
 li button {
