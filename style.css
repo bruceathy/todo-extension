@@ -40,6 +40,12 @@ input {
   margin-bottom: 0.2rem;
 }
 
+input:focus {
+  outline: none;
+  border: none;
+  background-color: #0000007c;
+}
+
 h1 {
   font-family: "Poetsen One", sans-serif;
   font-size: 3rem;
@@ -81,6 +87,15 @@ span:hover {
   scrollbar-width: none;
   margin-bottom: 0.3rem;
   width: 80%;
+}
+
+.empty-msg {
+  margin: 2.6rem;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #202020;
+  font-style: italic;
+  text-decoration: dashed underline;
 }
 
 li {

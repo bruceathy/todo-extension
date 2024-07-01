@@ -8,37 +8,9 @@ const toDosFromLocalStorage = JSON.parse(localStorage.getItem("toDos"));
 if (toDosFromLocalStorage) {
   toDoList = toDosFromLocalStorage;
   render(toDoList);
+} else {
+  listContainer.innerHTML = "<p class='empty-msg'>Empty List</p>";
 }
-
-// RENDER SAVED TO-DOS FROM LOCALSTORAGE
-function render(toDoList) {
-  let listItems = "";
-  toDos.forEach((toDo) => {
-    listItems += `
-    <li>
-      <span>${toDo}</span>
-      <button onclick="deleteToDo(this)">
-      <i class="fas fa-trash"></i>
-      </button>
-    </li>`;
-  });
-  toDoList.innerHTML = listItems;
-}
-
-// EDIT TO-DO
-// function editToDo(e) {
-//   e.contentEditable = true;
-//   e.focus();
-// }
-
-// DELETE TO-DO
-// function deleteToDo(e) {
-//   e.parentElement.remove();
-//   // localStorage.removeItem(`${e.previousElementSibling.textContent}`);
-//   // localStorage.clear();
-
-//   console.log(localStorage);
-// }
 
 addBtn.addEventListener("click", () => {
   if (toDoInput.value === "") {
@@ -52,3 +24,35 @@ addBtn.addEventListener("click", () => {
     console.log(localStorage.getItem("toDos"));
   }
 });
+
+// RENDER SAVED LIST FROM LOCALSTORAGE
+function render(toDos) {
+  let listItems = "";
+  for (let i = 0; i < toDos.length; i++) {
+    listItems += `
+    <li>
+      <span>${toDos[i]}</span>
+      <button onclick="deleteToDo(this)">
+      <i class="fas fa-trash"></i>
+      </button>
+    </li>`;
+  }
+  listContainer.innerHTML = listItems;
+}
+
+// EDIT TO-DO
+// function editToDo(e) {
+//   e.contentEditable = true;
+//   e.focus();
+// }
+
+//DELETE TO-DO
+function deleteToDo(e) {
+  // localStorage.removeItem(`${e.previousElementSibling.textContent}`);
+  // e.parentElement.remove();
+  localStorage.clear();
+  toDoList = [];
+  render(toDoList);
+
+  console.log(localStorage.getItem("toDos"));
+}
