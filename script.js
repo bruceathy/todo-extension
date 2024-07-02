@@ -5,7 +5,7 @@ const listContainer = document.getElementById("list-container");
 let toDoList = [];
 const toDosFromLocalStorage = JSON.parse(localStorage.getItem("toDos"));
 
-if (toDosFromLocalStorage) {
+if (toDosFromLocalStorage.length > 0) {
   toDoList = toDosFromLocalStorage;
   render(toDoList);
 } else {
@@ -25,13 +25,12 @@ addBtn.addEventListener("click", () => {
   }
 });
 
-// RENDER SAVED LIST FROM LOCALSTORAGE
 function render(toDos) {
   let listItems = "";
   for (let i = 0; i < toDos.length; i++) {
     listItems += `
     <li>
-      <span>${toDos[i]}</span>
+      <button onclick="editToDo(this)">${toDos[i]}</but>
       <button onclick="deleteToDo(this)">
       <i class="fas fa-trash"></i>
       </button>
@@ -41,17 +40,14 @@ function render(toDos) {
 }
 
 // EDIT TO-DO
-// function editToDo(e) {
-//   e.contentEditable = true;
-//   e.focus();
-// }
+function editToDo(e) {
+  e.contentEditable = true;
+  e.focus();
+}
 
-//DELETE TO-DO
 function deleteToDo(e) {
-  // localStorage.removeItem(`${e.previousElementSibling.textContent}`);
-  // e.parentElement.remove();
-  localStorage.clear();
-  toDoList = [];
+  toDoList.pop(e.parentElement.textContent);
+  localStorage.setItem("toDos", JSON.stringify(toDoList));
   render(toDoList);
 
   console.log(localStorage.getItem("toDos"));
