@@ -19,20 +19,17 @@ addBtn.addEventListener("click", () => {
     toDoList.push(toDoInput.value);
     toDoInput.value = "";
     render(toDoList);
-
-    console.log(localStorage.getItem("toDos"));
   }
 });
 
 function deleteToDo(e) {
   toDoList.pop(`${e.parentElement.textContent}`);
-  console.log(localStorage.getItem("toDos"));
-
   render(toDoList);
 }
 
 function render(toDos) {
   let listItems = "";
+
   for (let i = 0; i < toDos.length; i++) {
     listItems += `
     <li>
@@ -41,9 +38,9 @@ function render(toDos) {
       <i class="fas fa-trash"></i>
       </button>
     </li>`;
-
-    localStorage.setItem("toDos", JSON.stringify(toDos));
   }
+
+  localStorage.setItem("toDos", JSON.stringify(toDos));
 
   if (toDoList.length === 0) {
     listContainer.innerHTML = "<p class='empty-msg'>Empty List</p>";
@@ -51,5 +48,3 @@ function render(toDos) {
     listContainer.innerHTML = listItems;
   }
 }
-
-console.log(localStorage.getItem("toDos"));
