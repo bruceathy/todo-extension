@@ -5,6 +5,7 @@ const listContainer = document.getElementById("list-container");
 let toDoList = [];
 const toDosFromLocalStorage = JSON.parse(localStorage.getItem("toDos"));
 
+// Initial render
 if (toDosFromLocalStorage) {
   toDoList = toDosFromLocalStorage;
   render(toDoList);
@@ -12,6 +13,7 @@ if (toDosFromLocalStorage) {
   listContainer.innerHTML = "<p class='empty-msg'>Empty List</p>";
 }
 
+// Add To list
 addBtn.addEventListener("click", () => {
   if (toDoInput.value === "") {
     return;
@@ -22,11 +24,13 @@ addBtn.addEventListener("click", () => {
   }
 });
 
+// Delete To list
 function deleteToDo(e) {
   toDoList.pop(`${e.parentElement.textContent}`);
   render(toDoList);
 }
 
+// Render
 function render(toDos) {
   let listItems = "";
 
